@@ -213,7 +213,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plus" />
+                    android:text="@string/plus"
+                    android:onClick="addButtonClicked"
+                    />
 
             </LinearLayout>
 
@@ -237,14 +239,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/dot" />
+                    android:text="@string/dot"
+                    android:onClick="addDot" />
 
                 <Button
                     android:id="@+id/buttonEqu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/equals" />
+                    android:text="@string/equals"
+                    android:onClick="calculateResult"
+                    />
 
             </LinearLayout>
         </LinearLayout>
