@@ -54,11 +54,35 @@ public class MainActivity extends AppCompatActivity {
         resultText.setText(R.string.valor_inicial_cero);
     }
 
+    /* Evento para resta */
+    public void subtractButtonClicked(View view){
+        EditText resultText = findViewById(R.id.editText);
+        this.actual_value = resultText.getText().toString();
+        this.actual_operation = "-";
+        resultText.setText(R.string.valor_inicial_cero);
+    }
+
+    /* Evento para multiplicar */
+    public void multiplyButtonClicked(View view){
+        EditText resultText = findViewById(R.id.editText);
+        this.actual_value = resultText.getText().toString();
+        this.actual_operation = "*";
+        resultText.setText(R.string.valor_inicial_cero);
+    }
+
     /* Evento para igual */
     public void calculateResult(View view){
         EditText resultText = findViewById(R.id.editText);
         if(this.actual_operation.equals("+")){
             float resultado = Float.valueOf(this.actual_value) + Float.valueOf(resultText.getText().toString());
+            resultText.setText(String.valueOf(resultado));
+        }
+        else if(this.actual_operation.equals("-")){
+            float resultado = Float.valueOf(this.actual_value) - Float.valueOf(resultText.getText().toString());
+            resultText.setText(String.valueOf(resultado));
+        }
+        else if(this.actual_operation.equals("*")){
+            float resultado = Float.valueOf(this.actual_value) * Float.valueOf(resultText.getText().toString());
             resultText.setText(String.valueOf(resultado));
         }
         this.actual_operation = "=";
