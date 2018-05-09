@@ -46,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /* Evento para cambio de signo */
+    public void changeSign(View view){
+        EditText resultText = findViewById(R.id.editText);
+        String content = resultText.getText().toString();
+        if(content.equals("0")) return;
+        if(content.indexOf('-') == -1 ){
+            String num = "-".concat(content);
+            resultText.setText(num);
+        }else{
+            resultText.setText(content.substring(1));
+        }
+    }
+
     /* Evento para suma */
     public void addButtonClicked(View view){
         EditText resultText = findViewById(R.id.editText);
