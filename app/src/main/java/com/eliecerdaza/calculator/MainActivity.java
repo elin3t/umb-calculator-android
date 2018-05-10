@@ -46,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /* Evento para cambio de signo */
+    public void changeSign(View view){
+        EditText resultText = findViewById(R.id.editText);
+        String content = resultText.getText().toString();
+        if(content.equals("0")) return;
+        if(content.indexOf('-') == -1 ){
+            String num = "-".concat(content);
+            resultText.setText(num);
+        }else{
+            resultText.setText(content.substring(1));
+        }
+    }
+
     /* Evento para suma */
     public void addButtonClicked(View view){
         EditText resultText = findViewById(R.id.editText);
@@ -54,11 +67,35 @@ public class MainActivity extends AppCompatActivity {
         resultText.setText(R.string.valor_inicial_cero);
     }
 
+    /* Evento para resta */
+    public void subtractButtonClicked(View view){
+        EditText resultText = findViewById(R.id.editText);
+        this.actual_value = resultText.getText().toString();
+        this.actual_operation = "-";
+        resultText.setText(R.string.valor_inicial_cero);
+    }
+
+    /* Evento para multiplicar */
+    public void multiplyButtonClicked(View view){
+        EditText resultText = findViewById(R.id.editText);
+        this.actual_value = resultText.getText().toString();
+        this.actual_operation = "*";
+        resultText.setText(R.string.valor_inicial_cero);
+    }
+
     /* Evento para igual */
     public void calculateResult(View view){
         EditText resultText = findViewById(R.id.editText);
         if(this.actual_operation.equals("+")){
             float resultado = Float.valueOf(this.actual_value) + Float.valueOf(resultText.getText().toString());
+            resultText.setText(String.valueOf(resultado));
+        }
+        else if(this.actual_operation.equals("-")){
+            float resultado = Float.valueOf(this.actual_value) - Float.valueOf(resultText.getText().toString());
+            resultText.setText(String.valueOf(resultado));
+        }
+        else if(this.actual_operation.equals("*")){
+            float resultado = Float.valueOf(this.actual_value) * Float.valueOf(resultText.getText().toString());
             resultText.setText(String.valueOf(resultado));
         }
         this.actual_operation = "=";
