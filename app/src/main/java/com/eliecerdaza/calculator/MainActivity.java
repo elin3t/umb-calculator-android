@@ -83,6 +83,23 @@ public class MainActivity extends AppCompatActivity {
         resultText.setText(R.string.valor_inicial_cero);
     }
 
+    /* Evento para dividir */
+    public void divisionButtonClicked(View view){
+        EditText resultText = findViewById(R.id.editText);
+        this.actual_value = resultText.getText().toString();
+        this.actual_operation = "/";
+        resultText.setText(R.string.valor_inicial_cero);
+    }
+
+    /* Evento para porcentaje */
+    public void percentButtonClicked(View view){
+        EditText resultText = findViewById(R.id.editText);
+        this.actual_value = resultText.getText().toString();
+        this.actual_operation = "%";
+        resultText.setText(R.string.valor_inicial_cero);
+    }
+
+
     /* Evento para igual */
     public void calculateResult(View view){
         EditText resultText = findViewById(R.id.editText);
@@ -98,6 +115,25 @@ public class MainActivity extends AppCompatActivity {
             float resultado = Float.valueOf(this.actual_value) * Float.valueOf(resultText.getText().toString());
             resultText.setText(String.valueOf(resultado));
         }
+        else if(this.actual_operation.equals("/")){
+            if(resultText.getText().toString().equals("0")) {
+                resultText.setText("error");
+            }
+            else {
+
+                float resultado = Float.valueOf(this.actual_value) / Float.valueOf(resultText.getText().toString());
+                resultText.setText(String.valueOf(resultado));
+            }
+        }
+        else if(this.actual_operation.equals("%")){
+            float resultado = (Float.valueOf(this.actual_value)/100) * Float.valueOf(resultText.getText().toString());
+            resultText.setText(String.valueOf(resultado));
+        }
+
         this.actual_operation = "=";
     }
+
+
+
+
 }
