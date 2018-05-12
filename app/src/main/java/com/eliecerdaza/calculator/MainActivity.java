@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Cannot divide by zero", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast.show();
+
     }
 
     /* Evento para igual */
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         else if(this.actual_operation.equals("/")){
             if(resultText.getText().toString().equals("0")) {
                 errorDividebyZero();
+                resultText.setText(R.string.valor_inicial_cero);
             }
             else {
 
