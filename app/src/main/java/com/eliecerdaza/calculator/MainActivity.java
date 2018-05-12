@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.view.Gravity;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private String actual_value = "0";
@@ -99,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
         resultText.setText(R.string.valor_inicial_cero);
     }
 
+    public void errorDividebyZero() {
+        Toast toast = Toast.makeText(this, "Cannot divide by zero", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.show();
+    }
 
     /* Evento para igual */
     public void calculateResult(View view){
@@ -117,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(this.actual_operation.equals("/")){
             if(resultText.getText().toString().equals("0")) {
-                resultText.setText("error");
+                errorDividebyZero();
             }
             else {
 
